@@ -10,6 +10,7 @@
   --comment: rgb(136, 136, 136);
   --def: rgb(183, 154, 250);
   --parenthesis: rgb(219, 184, 58);
+  --ph: rgb(255, 115, 0);
 }
 
 * {
@@ -25,11 +26,19 @@ body {
 }
 
 /* CODES */
+.ph {
+  color: var(--ph);
+}
+
+.normal {
+  color: var(--declare);
+}
+
 code {
   font-family: monospace;
   font-size: 1.2rem;
   display: block;
-  line-height: 25px;
+  line-height: 22px;
   color: var(--declare);
 }
 
@@ -277,6 +286,18 @@ code {
   margin-bottom: 1em !important;
 }
 
+#main-doc table {
+  border-collapse: collapse;
+  margin-bottom: 2em;
+}
+
+#main-doc table tbody tr td {
+  padding: 10px;
+  border: 1px solid var(--code-bg);
+  color: rgba(213, 222, 255, 0.774);
+  font-size: 1.2rem;
+}
+
 #main-doc img {
   max-width: 100%;
   min-width: 200px;
@@ -288,6 +309,11 @@ code {
 @media (max-width: 768px) {
   #main-doc img {
     margin: 0px !important;
+  }
+
+  #main-doc table {
+    margin: 0px !important;
+    margin-bottom: 2em !important;
   }
 }
 

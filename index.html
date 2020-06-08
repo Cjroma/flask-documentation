@@ -187,6 +187,148 @@
       </section>
       <section class="main-section" id="Routing">
         <header class="section-header">Routing</header>
+        <p>Modern web applications use meaningful URLs to help users. Users are more likely to like a page and come back
+          if the page uses a meaningful URL they can remember and use to directly visit a page.</p>
+        <p>Use the route() decorator to bind a function to a URL.</p>
+        <div class="code-area">
+          <code><span class="symbol">@</span><span class="function">app<span class="symbol">.</span>route</span><span
+              class="par">(</span><span class="symbol">'</span><span class="string">/</span><span
+              class="symbol">'</span><span class="par">)</span></code>
+          <code><span class="def">def </span><span class="function">index</span><span class="par">()</span><span
+              class="symbol">:</span></code>
+          <code class="indent"><span class="symbol it">return </span><span class="symbol">'</span><span
+              class="string">Index Page</span><span class="symbol">'</span></code>
+          <br>
+          <code><span class="symbol">@</span><span class="function">app<span class="symbol">.</span>route</span><span
+              class="par">(</span><span class="symbol">'</span><span class="string">/hello</span><span
+              class="symbol">'</span><span class="par">)</span></code>
+          <code><span class="def">def </span><span class="function">hello</span><span class="par">()</span><span
+              class="symbol">:</span></code>
+          <code class="indent"><span class="symbol it">return </span><span class="symbol">'</span><span
+              class="string">Hello, World</span><span class="symbol">'</span></code>
+        </div>
+        <p>You can do more! You can make parts of the URL dynamic and attach multiple rules to a function.</p>
+        <h4 class="sub-header">Variable Rules</h4>
+        <p>You can add variable sections to a URL by marking sections with &lt;variable_name&gt;. Your function then
+          receives
+          the &lt;variable_name&gt; as a keyword argument. Optionally, you can use a converter to specify the type of
+          the
+          argument like &lt;1converter:variable_name&gt;.</p>
+        <div class="code-area">
+          <code><span class="symbol it">from </span>markupsafe<span class="symbol it"> import</span> escape</code>
+          <br>
+          <code><span class="symbol">@</span><span class="function">app<span class="symbol">.</span>route</span><span
+              class="par">(</span><span class="symbol">'</span><span class="string">/user/&lt;username&gt;</span><span
+              class="symbol">'</span><span class="par">)</span></code>
+          <code><span class="def">def </span><span class="function">show_user_profile</span><span class="par">(<span
+                class="variable">username</span>)</span><span class="symbol">:</span></code>
+          <code class="indent"><span class="comment"># show the user profile for that user</span></code>
+          <code class="indent"><span class="symbol it">return </span><span class="symbol">'</span><span
+              class="string">User <span class="ph">%s</span></span><span class="symbol">'</span><span class="def">
+              %</span> <span class="normal">escape<span class="par">(</span>username<span class="par">)</span></code>
+          <br>
+          <code><span class="symbol">@</span><span class="function">app<span class="symbol">.</span>route</span><span
+              class="par">(</span><span class="symbol">'</span><span
+              class="string">/user/&lt;int:post_id&gt;</span><span class="symbol">'</span><span
+              class="par">)</span></code>
+          <code><span class="def">def </span><span class="function">show_post</span><span class="par">(<span
+                class="variable">post_id</span>)</span><span class="symbol">:</span></code>
+          <code class="indent"><span class="comment"># show the post with the given id, the id is an
+              integer</span></code>
+          <code class="indent"><span class="symbol it">return </span><span class="symbol">'</span><span
+              class="string">Post <span class="ph">%d</span></span><span class="symbol">'</span><span class="def">
+              %</span> post_id</code>
+          <br>
+          <code><span class="symbol">@</span><span class="function">app<span class="symbol">.</span>route</span><span
+              class="par">(</span><span class="symbol">'</span><span
+              class="string">/path/&lt;path:subpath&gt;</span><span class="symbol">'</span><span
+              class="par">)</span></code>
+          <code><span class="def">def </span><span class="function">show_post</span><span class="par">(<span
+                class="variable">post_id</span>)</span><span class="symbol">:</span></code>
+          <code class="indent"><span class="comment"># show the subpath after /path/</span></code>
+          <code class="indent"><span class="symbol it">return </span><span class="symbol">'</span><span
+              class="string">Subpath <span class="ph">%s</span></span><span class="symbol">'</span><span class="def">
+              %</span> <span class="normal">escape<span class="par">(</span>subpath<span class="par">)</span></code>
+        </div>
+        <p>Converter types:</p>
+        <table class="m">
+          <tbody>
+            <tr>
+              <td>string</td>
+              <td>(default) accepts any text without a slash</td>
+            </tr>
+            <tr>
+              <td>int</td>
+              <td>accepts positive integers</td>
+            </tr>
+            <tr>
+              <td>float</td>
+              <td>accepts positive floating point values</td>
+            </tr>
+            <tr>
+              <td>path</td>
+              <td>like string but also accepts slashes</td>
+            </tr>
+            <tr>
+              <td>uuid</td>
+              <td>accepts UUID strings</td>
+            </tr>
+          </tbody>
+        </table>
+        <h4 class="sub-header">Unique URLs / Redirection Behavior</h4>
+        <p>The following two rules differ in their use of a trailing slash.</p>
+        <div class="code-area">
+          <code><span class="symbol">@</span><span class="function">app<span class="symbol">.</span>route</span><span
+              class="par">(</span><span class="symbol">'</span><span class="string">/projects/</span><span
+              class="symbol">'</span><span class="par">)</span></code>
+          <code><span class="def">def </span><span class="function">projects</span><span class="par">()</span><span
+              class="symbol">:</span></code>
+          <code class="indent"><span class="symbol it">return </span><span class="symbol">'</span><span
+              class="string">The project page</span><span class="symbol">'</span></code>
+          <br>
+          <code><span class="symbol">@</span><span class="function">app<span class="symbol">.</span>route</span><span
+              class="par">(</span><span class="symbol">'</span><span class="string">/about</span><span
+              class="symbol">'</span><span class="par">)</span></code>
+          <code><span class="def">def </span><span class="function">about</span><span class="par">()</span><span
+              class="symbol">:</span></code>
+          <code class="indent"><span class="symbol it">return </span><span class="symbol">'</span><span
+              class="string">The about page</span><span class="symbol">'</span></code>
+        </div>
+        <p>The canonical URL for the projects endpoint has a trailing slash. It’s similar to a folder in a file system.
+          If you access the URL without a trailing slash, Flask redirects you to the canonical URL with the trailing
+          slash.</p>
+        <p>The canonical URL for the about endpoint does not have a trailing slash. It’s similar to the pathname of a
+          file. Accessing the URL with a trailing slash produces a 404 “Not Found” error. This helps keep URLs unique
+          for these resources, which helps search engines avoid indexing the same page twice.</p>
+        <h4 class="sub-header">URL Building</h4>
+        <p>To build a URL to a specific function, use the url_for() function. It accepts the name of the function as its
+          first argument and any number of keyword arguments, each corresponding to a variable part of the URL rule.
+          Unknown variable parts are appended to the URL as query parameters.</p>
+        <p>Why would you want to build URLs using the URL reversing function url_for() instead of hard-coding them into
+          your templates?</p>
+        <ol class="m">
+          <li>Reversing is often more descriptive than hard-coding the URLs.</li>
+          <li>You can change your URLs in one go instead of needing to remember to manually change hard-coded URLs.</li>
+          <li>URL building handles escaping of special characters and Unicode data transparently.</li>
+          <li>The generated paths are always absolute, avoiding unexpected behavior of relative paths in browsers.</li>
+          <li>If your application is placed outside the URL root, for example, in /myapplication instead of /, url_for()
+            properly handles that for you.</li>
+        </ol>
+        <p>For example, here we use the test_request_context() method to try out url_for(). test_request_context() tells
+          Flask to behave as though it’s handling a request even while we use a Python shell. See Context Locals.</p>
+        <div class="code-area">
+          <code><span class="symbol it">from</span> flask <span class="symbol it">import</span> Flask<span
+              class="symbol">,</span> url_for</code>
+          <code><span class="symbol it">from</span> markupsafe <span class="symbol it">import</span> escape</code>
+          <br>
+          <code><span class="symbol">@</span><span class="function">app<span class="symbol">.</span>route</span><span
+              class="par">(</span><span class="symbol">'</span><span class="string">/</span><span
+              class="symbol">'</span><span class="par">)</span></code>
+          <code><span class="def">def </span><span class="function">index</span><span class="par">()</span><span
+              class="symbol">:</span></code>
+          <code class="indent"><span class="symbol it">return </span><span class="symbol">'</span><span
+              class="string">index</span><span class="symbol">'</span></code>
+        </div>
       </section>
       <section class="main-section" id="Static_Files">
         <header class="section-header">Static Files</header>
@@ -212,7 +354,7 @@
       <section class="main-section" id="Logging">
         <header class="section-header">Logging</header>
       </section>
-      <section class="main-section" id="Hooking_In_WSGI_Middleware">
+      <section class="main-section" id="Hooking_in_WSGI_Middleware">
         <header class="section-header">Hooking in WSGI Middleware</header>
       </section>
       <section class="main-section" id="Using_Flask_Extensions">
