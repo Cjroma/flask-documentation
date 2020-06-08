@@ -1,15 +1,15 @@
 :root {
-  --code-bg: rgb(53, 56, 70);
+  --code-bg: rgb(50, 55, 75);
   --body-bg: rgb(39, 44, 61);
   --header-bg: rgb(28, 32, 44);
-  --symbol: rgb(97, 186, 236);
-  --function: rgb(87, 131, 220);
-  --variable: rgb(217, 65, 84);
-  --declare: rgb(90, 103, 131);
-  --string: rgb(179, 218, 135);
-  --comment: rgb(94, 106, 141);
-  --def: rgb(120, 100, 168);
-  --parenthesis: rgb(178, 146, 35);
+  --symbol: rgb(143, 214, 255);
+  --function: rgb(126, 169, 255);
+  --variable: rgb(235, 77, 95);
+  --declare: rgb(181, 193, 221);
+  --string: rgb(200, 255, 137);
+  --comment: rgb(136, 136, 136);
+  --def: rgb(183, 154, 250);
+  --parenthesis: rgb(219, 184, 58);
 }
 
 * {
@@ -25,9 +25,40 @@ body {
 }
 
 /* CODES */
+code {
+  font-family: monospace;
+  font-size: 1.2rem;
+  display: block;
+  line-height: 25px;
+  color: var(--declare);
+}
+
+.indent::before {
+  content: '';
+  width: 30px;
+  display: inline-block;
+}
+
+.m {
+  margin-left: 50px;
+}
+
+
+.code-area {
+  padding: 1em;
+  display: block;
+  background: var(--code-bg);
+  margin-bottom: 1.2em;
+  border-radius: 5px;
+  border-top: 0.5px solid rgb(33, 35, 49);
+}
 
 .symbol {
   color: var(--symbol);
+}
+
+.it {
+  font-style: italic;
 }
 
 .function {
@@ -48,13 +79,14 @@ body {
 
 .comment {
   color: var(--comment);
+  font-style: italic;
 }
 
 .def {
   color: var(--def);
 }
 
-.parenthesis {
+.par {
   color: var(--parenthesis);
 }
 
@@ -138,16 +170,16 @@ body {
   cursor: pointer;
 }
 
-.header .side-bar-wrapper #nav-bar {
+.header .side-bar-wrapper #navbar {
   background: var(--header-bg);
   height: 100%;
 }
 
-.header .side-bar-wrapper #nav-bar .nav-header {
+.header .side-bar-wrapper #navbar .nav-header {
   margin-bottom: 1.5em;
 }
 
-.header .side-bar-wrapper #nav-bar ul {
+.header .side-bar-wrapper #navbar ul {
   background: #242938;
   border-bottom: 1px solid rgb(0, 1, 19);
   border-top: 1px solid rgb(0, 1, 19);
@@ -156,12 +188,12 @@ body {
   list-style: none;
 }
 
-.header .side-bar-wrapper #nav-bar ul li {
+.header .side-bar-wrapper #navbar ul li {
   border-bottom: 2px solid var(--body-bg);
   height: auto;
 }
 
-.header .side-bar-wrapper #nav-bar ul li a {
+.header .side-bar-wrapper #navbar ul li a {
   transition: 0.3s;
   text-decoration: none;
   font-size: 1.52rem;
@@ -172,7 +204,7 @@ body {
   padding: 1em 0.5em;
 }
 
-.header .side-bar-wrapper #nav-bar ul li a:hover {
+.header .side-bar-wrapper #navbar ul li a:hover {
   background: var(--header-bg);
 }
 
@@ -180,16 +212,73 @@ body {
   max-width: 100%;
   min-width: 320px;
   height: 100%;
-  border: 1px solid white;
   margin: 0 0 0 320px;
 }
 
-#main-doc .flask-logo {
-  width: 320px;
+#main-doc .main-wrapper {
+  width: 90%;
+  margin: 4em auto;
 }
 
-.main-section {
-  height: 200px;
+#main-doc .main-wrapper .quick-start header {
+  font-size: 3.2rem;
+  color: rgb(181, 202, 255);
+  margin-bottom: 0.4em;
+}
+
+#main-doc .main-wrapper .main-section header::before {
+  height: 80px;
+  content: '';
+  display: block;
+}
+
+#main-doc .main-wrapper .main-section header {
+  font-size: 2.5rem;
+  margin-bottom: 0.4em;
+  color: rgb(181, 202, 255);
+}
+
+#main-doc .main-wrapper .main-section ol {
+  margin-bottom: 1em;
+}
+
+#main-doc .main-wrapper .main-section ol li {
+  font-size: 1.2rem;
+  color: rgba(239, 243, 255, 0.774);
+  margin-bottom: 0.5;
+}
+
+#main-doc .main-wrapper .quick-start p,
+#main-doc .main-wrapper .main-section p {
+  font-size: 1.3rem;
+  color: rgba(245, 247, 255, 0.774);
+  margin-bottom: 1em;
+}
+
+#main-doc a {
+  text-decoration: none;
+  color: var(--symbol);
+  border-bottom: 1px dotted var(--symbol);
+}
+
+hr {
+  border-bottom: 1px solid var(--body-bg);
+}
+
+.sub-bg {
+  width: 100%;
+  padding: 1em 0.5em;
+  border-top: 1px solid rgb(33, 35, 46);
+  border-bottom: 1px solid rgb(33, 35, 46);
+  background: rgb(43, 49, 68);
+  margin-bottom: 1em;
+}
+
+.sub-header {
+  font-size: 1.8rem !important;
+  color: rgba(245, 247, 255, 0.774) !important;
+  margin: 0 !important;
+  margin-bottom: 1em !important;
 }
 
 /* Below 1024px Width DEVICES */

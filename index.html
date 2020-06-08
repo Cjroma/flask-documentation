@@ -18,7 +18,7 @@
       <div class="wrapper">
         <label for="check" class="close"><i class="fa fa-times"></i></label>
       </div>
-      <nav id="nav-bar">
+      <nav id="navbar">
         <header class="nav-header">
           <a href="#">
             <h1 class="headline">Flask</h1>
@@ -26,21 +26,22 @@
           </a>
         </header>
         <ul>
-          <li><a href="#a_minimal_application" class="nav-link">A Minimal Application</a></li>
-          <li><a href="#server_does_not_start" class="nav-link">What to do if the Server does not Start</a></li>
-          <li><a href="#debug_mode" class="nav-link">Debug Mode</a></li>
-          <li><a href="#routing" class="nav-link">Routing</a></li>
-          <li><a href="#static_files" class="nav-link">Static Files</a></li>
-          <li><a href="#rendering_templates" class="nav-link">Rendering Templates</a></li>
-          <li><a href="#accessing_request_data" class="nav-link">Accessing Request Data</a></li>
-          <li><a href="#redirects_and_errors" class="nav-link">Redirects and Errors</a></li>
-          <li><a href="#about_responses" class="nav-link">About Responses</a></li>
-          <li><a href="#sessions" class="nav-link">Sessions</a></li>
-          <li><a href="#message_flashing" class="nav-link">Message Flashing</a></li>
-          <li><a href="#logging" class="nav-link">Logging</a></li>
-          <li><a href="#hooking_in_wsgi_middleware" class="nav-link">Hooking in WSGI Middleware</a></li>
-          <li><a href="#using_flask_extensions" class="nav-link">Using Flask Extensions</a></li>
-          <li><a href="#deploying_to_a_web_server" class="nav-link">Deploying to a Web Server</a></li>
+          <li><a href="#A_Minimal_Application" class="nav-link">A Minimal Application</a></li>
+          <li><a href="#What_to_do_if_the_Server_does_not_Start" class="nav-link">What to do if the Server does not
+              Start</a></li>
+          <li><a href="#Debug_Mode" class="nav-link">Debug Mode</a></li>
+          <li><a href="#Routing" class="nav-link">Routing</a></li>
+          <li><a href="#Static_Files" class="nav-link">Static Files</a></li>
+          <li><a href="#Rendering_Templates" class="nav-link">Rendering Templates</a></li>
+          <li><a href="#Accessing_Request_Data" class="nav-link">Accessing Request Data</a></li>
+          <li><a href="#Redirects_and_Errors" class="nav-link">Redirects and Errors</a></li>
+          <li><a href="#About_Responses" class="nav-link">About Responses</a></li>
+          <li><a href="#Sessions" class="nav-link">Sessions</a></li>
+          <li><a href="#Message_Flashing" class="nav-link">Message Flashing</a></li>
+          <li><a href="#Logging" class="nav-link">Logging</a></li>
+          <li><a href="#Hooking_in_WSGI_Middleware" class="nav-link">Hooking in WSGI Middleware</a></li>
+          <li><a href="#Using_Flask_Extensions" class="nav-link">Using Flask Extensions</a></li>
+          <li><a href="#Deploying_to_a_Web_Server" class="nav-link">Deploying to a Web Server</a></li>
         </ul>
       </nav>
       <footer>
@@ -49,52 +50,127 @@
     </div>
   </div>
   <main id="main-doc">
-    <img class="flask-logo" src="img/flask-logo.png" alt="flask-logo">
-    <section class="main-section" id="a_minimal_application">
-      <header class="section-header">A Minimal Application</header>
-    </section>
-    <section class="main-section" id="server_does_not_start">
-      <header class="section-header">What to do if the Server does not Start</header>
-    </section>
-    <section class="main-section" id="debug_mode">
-      <header class="section-header">Debug Mode</header>
-    </section>
-    <section class="main-section" id="routing">
-      <header class="section-header">Routing</header>
-    </section>
-    <section class="main-section" id="static_files">
-      <header class="section-header">Static Files</header>
-    </section>
-    <section class="main-section" id="rendering_templates">
-      <header class="section-header">Rendering Templates</header>
-    </section>
-    <section class="main-section" id="accessing_request_data">
-      <header class="section-header">Accessing Request Data</header>
-    </section>
-    <section class="main-section" id="redirects_and_errors">
-      <header class="section-header">Redirects and Errors</header>
-    </section>
-    <section class="main-section" id="about_responses">
-      <header class="section-header">About Responses</header>
-    </section>
-    <section class="main-section" id="sessions">
-      <header class="section-header">Sessions</header>
-    </section>
-    <section class="main-section" id="message_flashing">
-      <header class="section-header">Message Flashing</header>
-    </section>
-    <section class="main-section" id="logging">
-      <header class="section-header">Logging</header>
-    </section>
-    <section class="main-section" id="hooking_in_wsgi_middleware">
-      <header class="section-header">Hooking in WSGI Middleware</header>
-    </section>
-    <section class="main-section" id="using_flask_extensions">
-      <header class="section-header">Using Flask Extensions</header>
-    </section>
-    <section class="main-section" id="deploying_to_a_web_server">
-      <header class="section-header">Deploying to a Web Server</header>
-    </section>
+    <div class="main-wrapper">
+      <section class="quick-start">
+        <header>Quickstart</header>
+        <p>Eager to get started? This page gives a good introduction to Flask. It assumes you already have Flask
+          installed. If you do not, head over to the <a
+            href="https://flask.palletsprojects.com/en/1.1.x/installation/#installation">Installation section.</a> </p>
+      </section>
+      <section class="main-section" id="A_Minimal_Application">
+        <header class="section-header">A Minimal Application</header>
+        <p>A minimal Flask application looks something like this:</p>
+        <div class="code-area">
+          <code><span class="symbol it">from </span>flask<span class="symbol it"> import</span> Flask</code>
+          <code>app <span class="def">=</span> Flask<span class="par">(</span>__name__<span class="par">)</span></code>
+          <br>
+          <code><span class="symbol">@</span><span class="function">app<span class="symbol">.</span>route</span><span
+              class="par">(</span><span class="symbol">'</span><span class="string">/</span><span
+              class="symbol">'</span><span class="par">)</span></code>
+          <code><span class="def">def </span><span class="function">hello_world</span><span class="par">()</span><span
+              class="symbol">:</span></code>
+          <code class="indent"><span class="symbol it">return </span><span class="symbol">'</span><span
+              class="string">Hello, World!</span><span class="symbol">'</span></code>
+        </div>
+        <p>So what did that code do?</p>
+        <ol class="m">
+          <li>First we imported the Flask class. An instance of this class will be our WSGI application.</li>
+          <li>First we imported the Flask class. An instance of this class will be our WSGI application.Next we create
+            an instance of this class. The first argument is the name of the application’s module or package. If you are
+            using a single module (as in this example), you should use __name__ because depending on if it’s started as
+            application or imported as module the name will be different ('__main__' versus the actual import name).
+            This is needed so that Flask knows where to look for templates, static files, and so on. For more
+            information have a look at the Flask documentation.</li>
+          <li>We then use the route() decorator to tell Flask what URL should trigger our function.</li>
+          <li>The function is given a name which is also used to generate URLs for that particular function, and returns
+            the message we want to display in the user’s browser.</li>
+        </ol>
+        <p>Just save it as hello.py or something similar. Make sure to not call your application flask.py because this
+          would conflict with Flask itself.</p>
+        <p>To run the application you can either use the flask command or python’s -m switch with Flask. Before you can
+          do that you need to tell your terminal the application to work with by exporting the FLASK_APP environment
+          variable:</p>
+        <div class="code-area">
+          <code>$ export FLASK_APP=hello.py</code>
+          <code>$ flask run</code>
+          <code class="indent">* Running on http://127.0.0.1:5000/</code>
+        </div>
+        <p>If you are on Windows, the environment variable syntax depends on command line interpreter. On Command
+          Prompt:</p>
+        <div class="code-area">
+          <code>C:\path\to\app>set FLASK_APP=hello.py</code>
+        </div>
+        <p>And on PowerShell:</p>
+        <div class="code-area">
+          <code>PS C:\path\to\app> $env:FLASK_APP = "hello.py"</code>
+        </div>
+        <p>Alternatively you can use python -m flask:</p>
+        <div class="code-area">
+          <code>$ export FLASK_APP=hello.py</code>
+          <code>$ python -m flask run</code>
+          <code class="indent">* Running on http://127.0.0.1:5000/</code>
+        </div>
+        <p>This launches a very simple builtin server, which is good enough for testing but probably not what you want
+          to use in production. For deployment options see
+          <a href="https://flask.palletsprojects.com/en/1.1.x/deploying/#deployment"> Deployment Options</a>.</p>
+        <p>Now head over to <a href="http://127.0.0.1:5000/">http://127.0.0.1:5000/</a>, and you should see your hello
+          world greeting.</p>
+        <div class="sub-bg">
+          <h4 class="sub-header">Externally Visible Server:</h4>
+          <p>If you run the server you will notice that the server is only accessible from your own computer, not from
+            any other in the network. This is the default because in debugging mode a user of the application can
+            execute arbitrary Python code on your computer.</p>
+          <p>If you have the debugger disabled or trust the users on your network, you can make the server publicly
+            available simply by adding --host=0.0.0.0 to the command line:</p>
+          <div class="code-area">
+            <code>$ flask run --host=0.0.0.0</code>
+          </div>
+          <p>This tells your operating system to listen on all public IPs.</p>
+      </section>
+      <section class="main-section" id="What_to_do_if_the_Server_does_not_Start">
+        <header class="section-header">What to do if the Server does not
+          Start</header>
+      </section>
+      <section class="main-section" id="Debug_Mode">
+        <header class="section-header">Debug Mode</header>
+      </section>
+      <section class="main-section" id="Routing">
+        <header class="section-header">Routing</header>
+      </section>
+      <section class="main-section" id="Static_Files">
+        <header class="section-header">Static Files</header>
+      </section>
+      <section class="main-section" id="Rendering_Templates">
+        <header class="section-header">Rendering Templates</header>
+      </section>
+      <section class="main-section" id="Accessing_Request_Data">
+        <header class="section-header">Accessing Request Data</header>
+      </section>
+      <section class="main-section" id="Redirects_and_Errors">
+        <header class="section-header">Redirects and Errors</header>
+      </section>
+      <section class="main-section" id="About_Responses">
+        <header class="section-header">About Responses</header>
+      </section>
+      <section class="main-section" id="Sessions">
+        <header class="section-header">Sessions</header>
+      </section>
+      <section class="main-section" id="Message_Flashing">
+        <header class="section-header">Message Flashing</header>
+      </section>
+      <section class="main-section" id="Logging">
+        <header class="section-header">Logging</header>
+      </section>
+      <section class="main-section" id="Hooking_In_WSGI_Middleware">
+        <header class="section-header">Hooking in WSGI Middleware</header>
+      </section>
+      <section class="main-section" id="Using_Flask_Extensions">
+        <header class="section-header">Using Flask Extensions</header>
+      </section>
+      <section class="main-section" id="Deploying_to_a_Web_Server">
+        <header class="section-header">Deploying to a Web Server</header>
+      </section>
+    </div>
   </main>
   <footer>
 
