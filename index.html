@@ -44,9 +44,6 @@
           <li><a href="#Deploying_to_a_Web_Server" class="nav-link">Deploying to a Web Server</a></li>
         </ul>
       </nav>
-      <footer>
-        <h4>Coded by: cjroma from fcc</h4>
-      </footer>
     </div>
   </div>
   <main id="main-doc">
@@ -55,7 +52,8 @@
         <header>Quickstart</header>
         <p>Eager to get started? This page gives a good introduction to Flask. It assumes you already have Flask
           installed. If you do not, head over to the <a
-            href="https://flask.palletsprojects.com/en/1.1.x/installation/#installation">Installation section.</a> </p>
+            href="https://flask.palletsprojects.com/en/1.1.x/installation/#installation">Installation section.</a>
+        </p>
       </section>
       <section class="main-section" id="A_Minimal_Application">
         <header class="section-header">A Minimal Application</header>
@@ -76,18 +74,22 @@
         <ol class="m">
           <li>First we imported the Flask class. An instance of this class will be our WSGI application.</li>
           <li>First we imported the Flask class. An instance of this class will be our WSGI application.Next we create
-            an instance of this class. The first argument is the name of the application’s module or package. If you are
-            using a single module (as in this example), you should use __name__ because depending on if it’s started as
+            an instance of this class. The first argument is the name of the application’s module or package. If you
+            are
+            using a single module (as in this example), you should use __name__ because depending on if it’s started
+            as
             application or imported as module the name will be different ('__main__' versus the actual import name).
             This is needed so that Flask knows where to look for templates, static files, and so on. For more
             information have a look at the Flask documentation.</li>
           <li>We then use the route() decorator to tell Flask what URL should trigger our function.</li>
-          <li>The function is given a name which is also used to generate URLs for that particular function, and returns
+          <li>The function is given a name which is also used to generate URLs for that particular function, and
+            returns
             the message we want to display in the user’s browser.</li>
         </ol>
         <p>Just save it as hello.py or something similar. Make sure to not call your application flask.py because this
           would conflict with Flask itself.</p>
-        <p>To run the application you can either use the flask command or python’s -m switch with Flask. Before you can
+        <p>To run the application you can either use the flask command or python’s -m switch with Flask. Before you
+          can
           do that you need to tell your terminal the application to work with by exporting the FLASK_APP environment
           variable:</p>
         <div class="code-area">
@@ -130,7 +132,8 @@
       <section class="main-section" id="What_to_do_if_the_Server_does_not_Start">
         <header class="section-header">What to do if the Server does not
           Start</header>
-        <p>In case the python -m flask fails or flask does not exist, there are multiple reasons this might be the case.
+        <p>In case the python -m flask fails or flask does not exist, there are multiple reasons this might be the
+          case.
           First of all you need to look at the error message.</p>
         <h4 class="sub-header">Old Version of Flask</h4>
         <p>Versions of Flask older than 0.11 use to have different ways to start the application. In short, the flask
@@ -148,9 +151,11 @@
       <section class="main-section" id="Debug_Mode">
         <header class="section-header">Debug Mode</header>
         <p>(Want to just log errors and stack traces? See <a
-            href="https://flask.palletsprojects.com/en/1.1.x/errorhandling/#application-errors">Application Errors</a> )
+            href="https://flask.palletsprojects.com/en/1.1.x/errorhandling/#application-errors">Application Errors</a>
+          )
         </p>
-        <p>The flask script is nice to start a local development server, but you would have to restart it manually after
+        <p>The flask script is nice to start a local development server, but you would have to restart it manually
+          after
           each change to your code. That is not very nice and Flask can do better. If you enable debug support the
           server will reload itself on code changes, and it will also provide you with a helpful debugger if things go
           wrong.</p>
@@ -187,7 +192,8 @@
       </section>
       <section class="main-section" id="Routing">
         <header class="section-header">Routing</header>
-        <p>Modern web applications use meaningful URLs to help users. Users are more likely to like a page and come back
+        <p>Modern web applications use meaningful URLs to help users. Users are more likely to like a page and come
+          back
           if the page uses a meaningful URL they can remember and use to directly visit a page.</p>
         <p>Use the route() decorator to bind a function to a URL.</p>
         <div class="code-area">
@@ -294,32 +300,42 @@
           <code class="indent"><span class="symbol it">return </span><span class="symbol">'</span><span
               class="string">The about page</span><span class="symbol">'</span></code>
         </div>
-        <p>The canonical URL for the projects endpoint has a trailing slash. It’s similar to a folder in a file system.
+        <p>The canonical URL for the projects endpoint has a trailing slash. It’s similar to a folder in a file
+          system.
           If you access the URL without a trailing slash, Flask redirects you to the canonical URL with the trailing
           slash.</p>
         <p>The canonical URL for the about endpoint does not have a trailing slash. It’s similar to the pathname of a
           file. Accessing the URL with a trailing slash produces a 404 “Not Found” error. This helps keep URLs unique
           for these resources, which helps search engines avoid indexing the same page twice.</p>
         <h4 class="sub-header">URL Building</h4>
-        <p>To build a URL to a specific function, use the url_for() function. It accepts the name of the function as its
+        <p>To build a URL to a specific function, use the url_for() function. It accepts the name of the function as
+          its
           first argument and any number of keyword arguments, each corresponding to a variable part of the URL rule.
           Unknown variable parts are appended to the URL as query parameters.</p>
-        <p>Why would you want to build URLs using the URL reversing function url_for() instead of hard-coding them into
+        <p>Why would you want to build URLs using the URL reversing function url_for() instead of hard-coding them
+          into
           your templates?</p>
         <ol class="m">
           <li>Reversing is often more descriptive than hard-coding the URLs.</li>
-          <li>You can change your URLs in one go instead of needing to remember to manually change hard-coded URLs.</li>
+          <li>You can change your URLs in one go instead of needing to remember to manually change hard-coded URLs.
+          </li>
           <li>URL building handles escaping of special characters and Unicode data transparently.</li>
-          <li>The generated paths are always absolute, avoiding unexpected behavior of relative paths in browsers.</li>
-          <li>If your application is placed outside the URL root, for example, in /myapplication instead of /, url_for()
+          <li>The generated paths are always absolute, avoiding unexpected behavior of relative paths in browsers.
+          </li>
+          <li>If your application is placed outside the URL root, for example, in /myapplication instead of /,
+            url_for()
             properly handles that for you.</li>
         </ol>
-        <p>For example, here we use the test_request_context() method to try out url_for(). test_request_context() tells
-          Flask to behave as though it’s handling a request even while we use a Python shell. See Context Locals.</p>
+        <p>For example, here we use the test_request_context() method to try out url_for(). test_request_context()
+          tells
+          Flask to behave as though it’s handling a request even while we use a Python shell. See <a
+            href="https://flask.palletsprojects.com/en/1.1.x/quickstart/#context-locals"> Context Locals</a>.</p>
         <div class="code-area">
           <code><span class="symbol it">from</span> flask <span class="symbol it">import</span> Flask<span
               class="symbol">,</span> url_for</code>
-          <code><span class="symbol it">from</span> markupsafe <span class="symbol it">import</span> escape</code>
+          <code><span class="symbol it">from</span> markupsafe <span class="symbol it">import</span> escape</code><br>
+          <code>app <span class="def">= </span>Flask<span class="par">(</span>__name__<span class="par">)</span></code>
+
           <br>
           <code><span class="symbol">@</span><span class="function">app<span class="symbol">.</span>route</span><span
               class="par">(</span><span class="symbol">'</span><span class="string">/</span><span
@@ -328,6 +344,26 @@
               class="symbol">:</span></code>
           <code class="indent"><span class="symbol it">return </span><span class="symbol">'</span><span
               class="string">index</span><span class="symbol">'</span></code>
+
+          <br>
+          <code><span class="symbol">@</span><span class="function">app<span class="symbol">.</span>route</span><span
+              class="par">(</span><span class="symbol">'</span><span class="string">/login</span><span
+              class="symbol">'</span><span class="par">)</span></code>
+          <code><span class="def">def </span><span class="function">login</span><span class="par">()</span><span
+              class="symbol">:</span></code>
+          <code class="indent"><span class="symbol it">return </span><span class="symbol">'</span><span
+              class="string">login</span><span class="symbol">'</span></code>
+
+          <br>
+          <code><span class="symbol">@</span><span class="function">app<span class="symbol">.</span>route</span><span
+              class="par">(</span><span class="symbol">'</span><span class="string">/user/&lt;username&gt;</span><span
+              class="symbol">'</span><span class="par">)</span></code>
+          <code><span class="def">def </span><span class="function">profile</span><span class="par">(<span
+                class="variable">username</span>)</span><span class="symbol">:</span></code>
+          <code class="indent"><span class="symbol it">return </span><span class="symbol">'</span><span
+              class="string"><span class="symbol"><span class="ph">{}</span>\'</span>s profile</span><span
+              class="symbol">'</span><span class="symbol">.</span><span class="declare">format<span
+                class="par">(</span>escape<span class="par">(</span>username<span class="par">))</span></span></code>
         </div>
       </section>
       <section class="main-section" id="Static_Files">

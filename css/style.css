@@ -60,6 +60,7 @@ code {
   margin-bottom: 1.2em;
   border-radius: 5px;
   border-top: 0.5px solid rgb(33, 35, 49);
+  overflow-x: scroll;
 }
 
 .symbol {
@@ -136,7 +137,7 @@ code {
 
 .side-bar-wrapper {
   width: 320px;
-  height: 100vh;
+  height: 105vh;
   background: var(--header-bg);
   border-right: 1px solid rgb(0, 1, 19);
   position: fixed;
