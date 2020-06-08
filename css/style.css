@@ -261,16 +261,12 @@ code {
   border-bottom: 1px dotted var(--symbol);
 }
 
-hr {
-  border-bottom: 1px solid var(--body-bg);
-}
-
 .sub-bg {
   width: 100%;
   padding: 1em 0.5em;
   border-top: 1px solid rgb(33, 35, 46);
   border-bottom: 1px solid rgb(33, 35, 46);
-  background: rgb(43, 49, 68);
+  background: rgb(37, 42, 58);
   margin-bottom: 1em;
 }
 
@@ -281,7 +277,20 @@ hr {
   margin-bottom: 1em !important;
 }
 
+#main-doc img {
+  max-width: 100%;
+  min-width: 200px;
+  margin-bottom: 1em;
+}
+
 /* Below 1024px Width DEVICES */
+
+@media (max-width: 768px) {
+  #main-doc img {
+    margin: 0px !important;
+  }
+}
+
 @media (max-width: 1025px) {
   #main-doc {
     margin: 5em 0;

@@ -147,6 +147,43 @@
       </section>
       <section class="main-section" id="Debug_Mode">
         <header class="section-header">Debug Mode</header>
+        <p>(Want to just log errors and stack traces? See <a
+            href="https://flask.palletsprojects.com/en/1.1.x/errorhandling/#application-errors">Application Errors</a> )
+        </p>
+        <p>The flask script is nice to start a local development server, but you would have to restart it manually after
+          each change to your code. That is not very nice and Flask can do better. If you enable debug support the
+          server will reload itself on code changes, and it will also provide you with a helpful debugger if things go
+          wrong.</p>
+        <p>To enable all development features (including debug mode) you can export the FLASK_ENV environment variable
+          and set it to development before running the server:</p>
+        <div class="code-area">
+          <code>$ export FLASK_ENV=development</code>
+          <code>$ flask run</code>
+        </div>
+        <p>(On Windows you need to use set instead of export .)</p>
+        <p>This does the following things:</p>
+        <ol class="m">
+          <li>it activates the debugger</li>
+          <li>it activates the automatic reloader</li>
+          <li>it enables the debug mode on the Flask application.</li>
+        </ol>
+        <p>You can also control debug mode separately from the environment by exporting FLASK_DEBUG=1.</p>
+        <p>There are more parameters that are explained in the <a
+            href="https://flask.palletsprojects.com/en/1.1.x/server/#server"> Development Server</a> docs.</p>
+        <div class="sub-bg">
+          <h4 class="sub-header">Attention:</h4>
+          <p>Even though the interactive debugger does not work in forking environments (which makes it nearly
+            impossible to use on production servers), it still allows the execution of arbitrary code. This makes it a
+            major security risk and therefore it must never be used on production machines.</p>
+        </div>
+        <p>Screenshot of the debugger in action:</p>
+        <img src="https://flask.palletsprojects.com/en/1.1.x/_images/debugger.png" alt="Type Error" class="m">
+        <p>More information on using the debugger can be found in the <a
+            href="https://werkzeug.palletsprojects.com/en/1.0.x/debug/#using-the-debugger">Werkzeug documentation</a>.
+        </p>
+        <p>Have another debugger in mind? See <a
+            href="https://flask.palletsprojects.com/en/1.1.x/errorhandling/#working-with-debuggers">Working with
+            Debuggers</a>.</p>
       </section>
       <section class="main-section" id="Routing">
         <header class="section-header">Routing</header>
