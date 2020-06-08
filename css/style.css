@@ -1,0 +1,185 @@
+:root {
+  --code-bg: rgb(53, 56, 70);
+  --body-bg: rgb(39, 44, 61);
+  --header-bg: rgb(28, 32, 44);
+  --symbol: rgb(93, 209, 255);
+}
+
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--body-bg);
+  color: white;
+  font-family: 'Garamond', 'Georgia', serif;
+}
+
+.header {
+  width: 100%;
+  height: 80px;
+  padding: 1em;
+  position: fixed;
+  background: var(--header-bg);
+  top: -100px;
+  transition: 0.6s;
+}
+.header .open {
+  position: absolute;
+  font-size: 2.8rem;
+  transition: 0.5s;
+}
+.header .head-1024 {
+  font-size: 2rem;
+  line-height: 40px;
+  text-align: right;
+  transition: 0.5s;
+  display: none;
+}
+.header a {
+  text-decoration: none;
+  color: rgb(248, 248, 255);
+}
+
+#check {
+  display: none;
+}
+
+.side-bar-wrapper {
+  width: 320px;
+  height: 100vh;
+  background: var(--header-bg);
+  border-right: 1px solid rgb(0, 1, 19);
+  position: fixed;
+  top: 0;
+  left: 0;
+  transition: 0.6s;
+  padding: 1.5em 0;
+}
+
+.side-bar-wrapper .wrapper {
+  width: 100%;
+  height: auto;
+}
+
+.side-bar-wrapper .headline {
+  font-size: 3rem;
+  text-align: center;
+  margin: 0 0.5em;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.side-bar-wrapper .head-doc {
+  font-size: 2rem;
+  text-align: center;
+  margin: 0 0.5em;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.side-bar-wrapper .wrapper .close {
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 1.5rem;
+  padding: 0.5em;
+  display: none;
+}
+
+.side-bar-wrapper .wrapper .close:hover,
+.open:hover {
+  cursor: pointer;
+}
+
+.header .side-bar-wrapper #nav-bar {
+  background: var(--header-bg);
+  height: 100%;
+}
+
+.header .side-bar-wrapper #nav-bar .nav-header {
+  margin-bottom: 1.5em;
+}
+
+.header .side-bar-wrapper #nav-bar ul {
+  background: #242938;
+  border-bottom: 1px solid rgb(0, 1, 19);
+  border-top: 1px solid rgb(0, 1, 19);
+  overflow-y: scroll;
+  height: 68%;
+  list-style: none;
+}
+
+.header .side-bar-wrapper #nav-bar ul li {
+  border-bottom: 2px solid var(--body-bg);
+  height: auto;
+}
+
+.header .side-bar-wrapper #nav-bar ul li a {
+  transition: 0.3s;
+  text-decoration: none;
+  font-size: 1.52rem;
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  color: #e1e1e1;
+  padding: 1em 0.5em;
+}
+
+.header .side-bar-wrapper #nav-bar ul li a:hover {
+  background: var(--header-bg);
+}
+#main-doc {
+  max-width: 100%;
+  min-width: 320px;
+  height: 100%;
+  border: 1px solid white;
+  margin: 0 0 0 320px;
+}
+
+#main-doc .flask-logo {
+  width: 320px;
+}
+
+.main-section {
+  height: 200px;
+}
+
+/* Below 1024px Width DEVICES */
+@media (max-width: 1025px) {
+  #main-doc {
+    margin: 5em 0;
+  }
+  .side-bar-wrapper .wrapper .close {
+    display: inline;
+  }
+
+  .side-bar-wrapper {
+    left: -350px;
+    background: var(--header-bg);
+  }
+
+  #check:checked ~ .side-bar-wrapper {
+    left: 0;
+  }
+
+  #check:checked ~ .open {
+    opacity: 0;
+  }
+  .header .head-1024 {
+    display: block;
+  }
+  #check:checked ~ .head-1024 {
+    opacity: 0;
+  }
+
+  .header {
+    top: 0;
+  }
+}
+
+@media (max-width: 425px) {
+  .header .head-1024 {
+    font-size: 1.5rem;
+  }
+}
